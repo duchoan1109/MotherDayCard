@@ -1,15 +1,114 @@
-body {
-  background-color: #fff0f5;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  padding-top: 100px;
+/* Reset margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: 'Georgia', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+/* Card styles */
 .card {
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  padding: 40px;
-  max-width: 400px;
-  margin: auto;
+    width: 350px;
+    height: 220px;
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.front, .back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* Front card */
+.front {
+    background-color: #7f3f7f;
+    color: white;
+    transform: rotateY(0deg);
+    transition: transform 0.6s;
+    border: 2px solid #5a2a5a;
+}
+
+.front h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.front .message {
+    font-style: italic;
+    font-size: 18px;
+}
+
+/* Back card */
+.back {
+    background-color: #ffffff;
+    color: #333;
+    transform: rotateY(180deg);
+    transition: transform 0.6s;
+    border: 2px solid #7f3f7f;
+}
+
+.back h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #7f3f7f;
+}
+
+.back .message {
+    font-size: 20px;
+    font-style: italic;
+    color: #555;
+}
+
+/* Button style */
+button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #5a2a5a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background-color: #7f3f7f;
+}
+
+/* Effect when card is flipped */
+.card.flipped .front {
+    transform: rotateY(180deg);
+}
+
+.card.flipped .back {
+    transform: rotateY(0deg);
 }
