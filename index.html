@@ -933,10 +933,118 @@
                                  c-16.072-12.613-41.381-26.674-72.329-23.977c-21.664,2.405-52.653,12.308-77.277,45.856c-13.392,19.922-16.495,52.272,4.132,72.986
                                  c3.371,3.385,7.075,6.243,11.008,8.573c4.885,2.894,10.125,4.964,15.515,6.228C354.624,212.802,357.947,181.899,370.903,162.627z" />
         </svg>
-        <p id="text-click" style=" display: none;   font-family: fantasy;
-        color: indianred;
-        font-size: 50px;
-        top: 80%;">Click me now !</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Page</title>
+  <style>
+    /* CSS để căn chỉnh các phần tử */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f3e1ed;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      position: relative;
+    }
+
+    .wrapper {
+      text-align: center;
+    }
+
+    .question {
+      font-family: fantasy;
+      color: indianred;
+      font-size: 50px;
+      display: inline-block;
+    }
+
+    .gif {
+      height: 70%;
+      width: 70%;
+      margin-top: 20px;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+    }
+
+    button {
+      width: 150px;
+      height: 50px;
+      color: rgb(235, 229, 229);
+      font-size: 1.2em;
+      border-radius: 30px;
+      outline: none;
+      cursor: pointer;
+      box-shadow: 0 2px 4px gray;
+      border: 2px solid #c0d6e4;
+      margin: 0 20px;
+    }
+
+    button:nth-child(1) {
+      background: #e26878;
+    }
+
+    button:nth-child(2) {
+      background: rgb(235, 224, 224);
+      color: #e22242;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <p class="question">Click me now!</p>
+    <img class="gif" src="" alt="GIF" />
+    <div class="btn-group">
+      <button class="yes-btn">Yes</button>
+      <button class="no-btn">No</button>
+    </div>
+  </div>
+
+  <script>
+    const wrapper = document.querySelector(".wrapper");
+    const question = document.querySelector(".question");
+    const gif = document.querySelector(".gif");
+    const yesBtn = document.querySelector(".yes-btn");
+    const noBtn = document.querySelector(".no-btn");
+
+    yesBtn.addEventListener("click", () => {
+      question.innerHTML = "Test"; 
+      gif.src = "https://media.giphy.com/media/MFkTITj69pMOPlbfeX/giphy.gif";
+      // Ẩn cả hai nút "Yes" và "No"
+      yesBtn.style.display = "none";
+      noBtn.style.display = "none";
+    });
+
+    noBtn.addEventListener("mouseover", () => {
+      const noBtnRect = noBtn.getBoundingClientRect();
+      const maxX = window.innerWidth - noBtnRect.width;
+      const maxY = window.innerHeight - noBtnRect.height;
+
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+
+      noBtn.style.position = "absolute";  // Đảm bảo noBtn có thể di chuyển
+      noBtn.style.left = randomX + "px";
+      noBtn.style.top = randomY + "px";
+    });
+  </script>
+
+</body>
+</html>
     </div>
 
     <!-- <div class="box-content">
